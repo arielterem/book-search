@@ -1,0 +1,15 @@
+<div class="card-container py-5">
+  <div class="mb-4 d-flex flex-column align-items-center">
+    <label for="search-input" class="search-label mb-2">
+      Type — Explore — Discover
+    </label>
+    <input id="search-input" [formControl]="searchControl" class="form-control search-input" type="text"
+      placeholder="Search for books..." autocomplete="off" />
+  </div>
+  @if(loading){
+  <app-loader></app-loader>
+  }
+  @else{
+    <app-results-grid [results]="results"></app-results-grid>
+  }
+</div>

@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row align-items-center justify-content-center flex-column-reverse flex-md-row">
+        <div
+            class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-start text-start mb-4 mb-md-0">
+            <h1 class="welcome-main mb-2">WELCOME</h1>
+            <h2 class="welcome-mini mb-3">to <span class="brand-title">BookFinder</span></h2>
+            <p class="welcome-desc mb-4">
+                Discover millions of books using the Google Books API.<br>
+                <strong>Search</strong> for any book, <strong>add favorites to your wishlist</strong>, and <strong>view
+                    your personalized collection</strong> anytime.
+            </p>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" class="w-100" style="max-width: 400px;">
+                <div class="mb-3">
+                    <input type="text" class="form-control form-control-lg" formControlName="username"
+                        placeholder="Enter username"
+                        [ngClass]="{ 'is-invalid': form.get('username')?.invalid && form.get('username')?.touched }" />
+                    @if (form.get('username')?.invalid && form.get('username')?.touched) {
+                    <div class="invalid-feedback">
+                        Username is required.
+                    </div>
+                    }
+
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg w-100" [disabled]="form.invalid">
+                    Continue
+                </button>
+                <div class="text-center mt-3">
+                    <img
+                      src="../../../assets/e-square.png"
+                      alt="e-square logo"
+                      style="max-width: 120px;"
+                    />
+                  </div>
+            </form>
+        </div>
+        <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
+            <img src="assets/welcome.png" alt="Books illustration" class="img-fluid welcome-illustration" />
+        </div>
+    </div>
+</div>

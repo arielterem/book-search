@@ -1,0 +1,196 @@
+// background-color: #b9b9b9;
+// background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+// background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+.my-container {
+    background-image: linear-gradient(-70deg, #dceeff 50%, #f4f4f4 50%);
+    // background-image: linear-gradient(-70deg, #fafafa 50%, #dcdcdc 50%);
+
+    // background-image: linear-gradient(-70deg, #fbc2eb 50%, #a6c1ee 50%);
+    width: 100%;
+    height: 100vh;
+    padding: 1rem;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Container card styles */
+  .glass-card {
+    position: relative;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    width: 90vw;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.4) !important;
+    border-radius: 20px !important;
+    box-shadow: 0px 0 31px 0px rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    overflow: hidden;
+  }
+  
+  /* Sticky header at top of card using Bootstrap grid */
+  .sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    // background: rgba(255, 255, 255, 0.4);
+    // backdrop-filter: blur(15px);
+    // border-top-left-radius: 20px;
+    // border-top-right-radius: 20px;
+    min-height: 72px;
+    box-shadow: none;
+    box-sizing: border-box;
+    padding: 0;
+  
+    .container-fluid {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .row {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+  
+  /* Left side: username */
+  .header-left {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #232946;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Right side: navigation icons container */
+  .header-right {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  /* Navigation icon links */
+  .nav-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: #888;
+    text-decoration: none;
+    // font-size: 2rem;
+    font-weight: 500;
+    transition: color 0.2s;
+    padding: 0.25rem 0;
+    // line-height: 1;
+  
+    mat-icon {
+    //   font-size: 2rem;
+      transition: color 0.2s;
+    }
+  
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: #38bdf8;
+      border-radius: 1px;
+      transition: width 0.3s cubic-bezier(.4,0,.2,1), left 0.3s cubic-bezier(.4,0,.2,1);
+      opacity: 1;
+    }
+  
+    &:hover::after {
+      width: 100%;
+      left: 0;
+      opacity: 1;
+    }
+  
+    &:hover,
+    &:focus {
+      color: #38bdf8;
+      mat-icon {
+        color: #38bdf8;
+      }
+    }
+  
+    &.active {
+      color: #232946;
+      font-weight: 700;
+      mat-icon {
+        color: #232946;
+      }
+      &::after {
+        width: 100%;
+        left: 0;
+        opacity: 1;
+        background: #232946;
+      }
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .glass-card {
+      width: 98vw;
+      height: 98vh;
+      padding: 1rem;
+    }
+    .sticky-header {
+      min-height: 56px;
+    }
+    .header-left {
+      font-size: 1.1rem;
+      .username {
+        font-size: 1.1em;
+      }
+    }
+    .header-right {
+      gap: 1rem;
+    }
+    .nav-icon {
+      font-size: 1.5rem;
+      mat-icon {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  
+
+  .my-container,
+.glass-card {
+  height: 100vh; // or 100% if parent is already constrained
+  min-height: 0;
+}
+
+.glass-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.d-flex {
+  display: flex !important;
+}
+.flex-column {
+  flex-direction: column !important;
+}
+.h-100 {
+  height: 100% !important;
+}
+.flex-grow-1 {
+  flex: 1 1 0%;
+  min-height: 0;
+}
+.router-content {
+  overflow-y: auto; // enables scrolling if content is too tall
+  min-height: 0;
+}

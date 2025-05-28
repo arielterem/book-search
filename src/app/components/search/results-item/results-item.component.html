@@ -1,0 +1,49 @@
+<mat-card class="book-card">
+    <div class="card-content">
+      <div class="book-image">
+        @if (book.volumeInfo?.imageLinks?.thumbnail) {
+          <img
+            [src]="book.volumeInfo?.imageLinks?.thumbnail"
+            alt="Book cover"
+          />
+        } @else {
+          <img
+            src="../../../../assets/cover-not-availble.jpg"
+            alt="No book cover available"
+          />
+        }
+      </div>
+  
+      <div class="book-details">
+        <div class="book-title" [title]="book.volumeInfo.title">
+          {{ book.volumeInfo.title }}
+        </div>
+        <div class="book-author">
+          {{ book.volumeInfo.authors?.join(', ') || 'Unknown author' }}
+        </div>
+  
+        <div class="card-footer">
+          @if (type === 'wishlist-item') {
+            <button
+              mat-icon-button
+              class="heart-btn"
+              matTooltip="Remove from wishlist"
+              (click)="removeFromWishlist($event)"
+            >
+              <mat-icon>favorite</mat-icon>
+            </button>
+          }
+  
+          <button
+            mat-icon-button
+            class="open-btn"
+            matTooltip="Open details"
+            (click)="openDetails($event)"
+          >
+            <mat-icon>open_in_new</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+  

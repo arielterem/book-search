@@ -1,0 +1,53 @@
+.welcome-main {
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: -2px;
+    color: #111;
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  
+  .welcome-mini {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1976d2;
+    letter-spacing: 0.5px;
+  }
+  
+  .brand-title {
+    color: #111;
+    font-weight: 900;
+    letter-spacing: -1px;
+  }
+  
+  .welcome-desc {
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: #222;
+    line-height: 1.5;
+  }
+  
+  .welcome-illustration {
+    // max-width: 400px;
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.15)) drop-shadow(0 6px 10px rgba(0, 0, 0, 0.06));
+}
+  
+  @media (max-width: 767.98px) {
+    .welcome-main {
+      font-size: 2.3rem;
+    }
+    .welcome-mini {
+      font-size: 1.2rem;
+    }
+    .welcome-desc {
+      font-size: 1.05rem;
+    }
+    .welcome-illustration {
+      max-width: 200px;
+    }
+  }
+  

@@ -1,0 +1,226 @@
+.results-grid-wrapper {
+    display: flex;
+    flex-direction: column;
+    // height: 70vh;
+    padding-bottom: 3rem;
+}
+
+.scroll-container {
+    overflow-y: auto;
+    // padding: 0 1rem;
+    flex: 1;
+    scroll-snap-type: y mandatory;
+    /* Optional: smooth scrolling */
+    scroll-behavior: smooth;
+    padding-bottom: 1rem;
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 4px;
+    }
+}
+
+.snap-item {
+    scroll-snap-align: start;
+    /* Optional: add min-height for better snapping, adjust as needed */
+    min-height: 120px;
+    /* Ensures the snap works well with Bootstrap's gutters */
+    display: flex;
+    flex-direction: column;
+}
+
+.paginator-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+    flex: 0 0 auto;
+}
+
+/* Center the grid and make it responsive */
+.results-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 16px 16px;
+    width: 100%;
+    // max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    padding-bottom: 8px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex: 1 1 auto;
+    /* Take remaining vertical space */
+    height: 100%;
+    /* Fill available height */
+    min-height: 0;
+    /* Prevent overflow in flexbox */
+    padding-bottom: 2rem;
+}
+
+/* Responsive: on mobile, stack vertically */
+@media (max-width: 767px) {
+    .results-container {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 12px;
+        max-width: 100%;
+    }
+}
+
+/* Style the paginator container to match the search input */
+mat-paginator {
+    max-width: 480px;
+    /* Same as search-input */
+    width: 100%;
+    /* Same as search-input */
+    // border: none;
+    /* No border */
+    border-radius: 10px;
+    /* Rounded corners */
+    background: #fff;
+    /* White background, similar to an input field */
+    box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.06);
+    /* Subtle shadow for depth */
+    margin: 0 auto;
+    /* Center the paginator */
+    padding: 0.5rem 1rem;
+    /* Adjust padding for the paginator container */
+    display: flex;
+    /* Ensure flex properties are maintained */
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    /* Smooth transition for any changes */
+  border: 3px solid #e0e0e0;
+
+}
+
+/* Center paginator content */
+mat-paginator .mat-paginator-outer-container {
+    justify-content: center !important;
+}
+
+mat-paginator .mat-paginator-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    /* Slightly reduce gap for better fit */
+    min-height: 48px;
+    /* Adjust minimum height */
+    font-size: 1rem;
+    /* Adjust font size for overall paginator text */
+}
+
+/* Round the page size select and navigation buttons */
+mat-paginator .mat-paginator-page-size {
+    border-radius: 8px;
+    /* Slightly less rounded than before, more like an input */
+    overflow: hidden;
+    background: #f3f6fa;
+    /* Light background for the select box */
+    padding: 2px 8px;
+    font-size: 0.9rem;
+    /* Adjust font size for page size select */
+}
+
+mat-paginator .mat-mdc-icon-button,
+mat-paginator .mat-paginator-navigation-previous,
+mat-paginator .mat-paginator-navigation-next,
+mat-paginator .mat-paginator-navigation-first,
+mat-paginator .mat-paginator-navigation-last {
+    border-radius: 50% !important;
+    background: #e0e7ef !important;
+    /* Slightly darker background for buttons */
+    margin: 0 2px;
+    /* Reduce margin for better fit */
+    transition: background 0.2s;
+    min-width: 36px;
+    /* Ensure buttons are a reasonable size */
+    height: 36px;
+    padding: 0;
+    /* Remove default padding */
+}
+
+mat-paginator .mat-mdc-icon-button:hover,
+mat-paginator .mat-paginator-navigation-previous:hover,
+mat-paginator .mat-paginator-navigation-next:hover,
+mat-paginator .mat-paginator-navigation-first:hover,
+mat-paginator .mat-paginator-navigation-last:hover {
+    background: #cdd8e6 !important;
+    /* Darker hover state */
+}
+
+/* Optional: Style the page number text */
+mat-paginator .mat-paginator-range-label {
+    font-weight: 500;
+    color: #232946;
+    min-width: 60px;
+    /* Adjust min-width */
+    text-align: center;
+    font-size: 0.95rem;
+    /* Adjust font size */
+}
+
+/* Responsive: shrink paginator on mobile */
+@media (max-width: 600px) {
+    mat-paginator {
+        max-width: 98vw;
+        /* Match search input's mobile width */
+        padding: 0.4rem 0.6rem;
+        /* Adjust padding for mobile */
+        border-radius: 8px;
+        /* Slightly smaller border-radius on mobile */
+    }
+
+    mat-paginator .mat-paginator-container {
+        gap: 4px;
+        /* Further reduce gap for tighter fit */
+        min-height: 40px;
+        /* Smaller min-height on mobile */
+        font-size: 0.9rem;
+        /* Smaller font size on mobile */
+        flex-wrap: nowrap;
+        /* Prevent wrapping of items */
+        justify-content: center;
+        /* Ensure content is centered */
+    }
+
+    mat-paginator .mat-paginator-page-size {
+        padding: 1px 4px;
+        /* Reduce padding to save space */
+        font-size: 0.8rem;
+        /* Slightly smaller font for "Items per page" */
+    }
+
+    mat-paginator .mat-mdc-icon-button,
+    mat-paginator .mat-paginator-navigation-previous,
+    mat-paginator .mat-paginator-navigation-next,
+    mat-paginator .mat-paginator-navigation-first,
+    mat-paginator .mat-paginator-navigation-last {
+        min-width: 30px;
+        /* Smaller buttons on mobile */
+        height: 30px;
+        margin: 0 1px;
+        /* Even less margin on mobile */
+    }
+
+    mat-paginator .mat-paginator-range-label {
+        min-width: 40px;
+        /* Further reduce min-width */
+        font-size: 0.85rem;
+    }
+}

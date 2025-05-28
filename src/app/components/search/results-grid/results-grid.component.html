@@ -1,0 +1,23 @@
+@if (results.length > 0) {
+    <div class="results-grid-wrapper">
+      <div class="paginator-wrapper">
+        <mat-paginator
+          [length]="results.length"
+          [pageSize]="pageSize"
+          [pageIndex]="pageIndex"
+          [pageSizeOptions]="[5, 10, 20]"
+          (page)="onPageChange($event)">
+        </mat-paginator>
+      </div>
+      <div class="row g-3 scroll-container">
+        @for (book of displayedResults; track book) {
+          <div class="col-md-6 col-sm-12 snap-item">
+            <app-results-item [book]="book" [type]="type"></app-results-item>
+          </div>
+        }
+      </div>
+    </div>
+  } @else {
+    <p class="text-muted">No results to display.</p>
+  }
+  
